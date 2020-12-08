@@ -1,0 +1,51 @@
+//
+// Basic Bootstrap table
+//
+
+.table {
+
+  thead th,
+  tbody td {
+    border-bottom: $table-border-width solid $table-border-color;
+  }
+
+  th[class^="sorting"] {
+    padding-right: 32px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  th[class^="sorting"]:active {
+    outline: none;
+  }
+
+  th[class^="sorting"]:before,
+  th[class^="sorting"]:after {
+    position: absolute;
+    top: $table-cell-padding;
+    display: block;
+    opacity: 0.3;
+    color: $black;
+  }
+
+  th[class^="sorting"]:before {
+    right: 1em;
+    content: "\2191";
+  }
+
+  th[class^="sorting"]:after {
+    right: 0.5em;
+    content: "\2193";
+  }
+
+  th.sorting_asc:before,
+  th.sorting_desc:after {
+    opacity: 1;
+  }
+
+  th.sorting_asc_disabled:before,
+  th.sorting_desc_disabled:after {
+    opacity: 0;
+  }
+
+}

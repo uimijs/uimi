@@ -1,0 +1,49 @@
+{
+  "name": "uimi",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Yao Yi",
+  "license": "ISC",
+  "main": "dist/js/uimi.cjs.js",
+  "module": "dist/js/uimi.esm.js",
+  "style": "dist/css/uimi.css",
+  "sass": "src/scss/uimi.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uimijs/uimi.git"
+  },
+  "scripts": {
+    "api": "npm-run-all api-*",
+    "api-build": "rollup --config build/rollup.config.js",
+    "api-minify-main": "terser --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/uimi.js.map,includeSources,url=uimi.min.js.map\" --output dist/js/uimi.min.js dist/js/uimi.js",
+    "css": "npm-run-all css-*",
+    "css-theme": "node-sass --source-map true src/scss -o dist/css",
+    "css-minify-main": "cleancss -O2 --source-map --source-map-inline-sources -o dist/css/uimi.min.css dist/css/uimi.css"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@vue/compiler-sfc": "^3.0.4",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "clean-css-cli": "^4.3.0",
+    "glob": "^7.1.6",
+    "js-beautify": "^1.13.0",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.34.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "terser": "^5.5.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2",
+    "vue": "^3.0.2",
+    "bootstrap-vue": "^2.19.0",
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
+    "pixrem": "^5.0.0",
+    "pixrem-cli": "^1.0.3",
+    "rollup-plugin-typescript2": "^0.29.0"
+  }
+}

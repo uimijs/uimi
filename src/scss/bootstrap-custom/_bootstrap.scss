@@ -1,0 +1,16 @@
+//-------------------------------------------------------------------
+// === Import custom variables ===
+@import "variables";
+
+//-------------------------------------------------------------------
+// === Boostrap Main SCSS ===
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// === Boostrap custom SCSS ===
+@import "card";
+@import "forms";
+@import "grid";
+@import "modal";
+@import "nav";
+@import "navbar";
+@import "pagination";

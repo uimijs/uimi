@@ -1,0 +1,38 @@
+.tree {
+
+  ul {
+    display: block;
+    overflow: hidden;
+  }
+
+  // .nav-item {}
+
+  .nav-link {
+    position: relative;
+    white-space: nowrap;
+    @include transition($transition-base);
+
+    >* {
+      vertical-align: middle;
+      @include transition($transition-base);
+    }
+
+    &.active &:hover {
+      color: #fff;
+      background: #03a9f4;
+    }
+
+    &.active {
+      .fa-angle-down {
+        transform: rotate(-180deg);
+      }
+    }
+
+  }
+
+  .fa-angle-down {
+    position: absolute;
+    top: 12px;
+    // right: 1rem;
+  }
+}

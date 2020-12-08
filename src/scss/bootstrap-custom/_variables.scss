@@ -1,0 +1,58 @@
+$rfs-font-size-unit: px !default;
+$body-bg: #f8f9fa !default;
+$body-color: #495057 !default;
+$font-family-sans-serif:Nunito,
+Helvetica Neue,
+Helvetica,
+Hiragino Sans GB,
+Microsoft YaHei,
+Arial,
+sans-serif !default;
+$font-size-base: 14px !default;
+$font-size-lg: 16px !default;
+$font-size-sm: 12px !default;
+//color
+$primary: #727cf5 !default;
+$secondary: #6c757d !default;
+$success: #0acf97 !default;
+$info: #39afd1 !default;
+$warning: #ffbc00 !default;
+$danger: #fa5c7c !default;
+$light: #eef2f7 !default;
+$dark: #313a46 !default;
+//border
+$border-color:#e9ecef !default;
+//grid//row
+$grid-columns: 24 !default;
+$grid-gutter-width: 20px !default;
+$grid-row-columns: $grid-columns/2 !default;
+$form-grid-gutter-width: $grid-gutter-width/2 !default;
+//input// Buttons + Forms
+$input-btn-padding-y: 4px !default;
+$input-disabled-bg: #fff !default;
+$input-border-color: #dee2e6 !default;
+$input-btn-focus-width: 1px !default;
+// Navbar
+$navbar-padding-y: 0 !default;
+$navbar-padding-x: 0 !default;
+$navbar-light-color: #adb5bd !default;
+//$navbar-nav-link-padding-x: 1 * 16px !default;
+$navbar-brand-padding-y:0 !default;
+//list-group-item
+$list-group-item-padding-x:16px !default;
+$list-group-item-padding-y:8px !default;
+// Cards
+$card-cap-bg: #fff !default;
+$card-columns-gap: $grid-gutter-width !default;
+//$card-border-radius: 4px !default;
+//table
+$table-cell-padding: 10px !default;
+$table-border-color: #eef2f7 !default;
+//$table-hover-bg:             rgba($black, .075) !default;
+// Pagination
+$pagination-color: inherit !default;
+$pagination-bg: #f4f4f5 !default;
+$pagination-border-color: #f4f4f5 !default;
+$pagination-padding-y:6px !default;
+$pagination-padding-x:6px !default;
+$pagination-active-bg: #adb5bd !default;
