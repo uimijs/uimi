@@ -43,7 +43,6 @@
     "chalk": "^4.1.0",
     "commander": "^6.2.0",
     "pixrem": "^5.0.0",
-    "pixrem-cli": "^1.0.3",
     "rollup-plugin-typescript2": "^0.29.0"
   }
 }
