@@ -13,9 +13,9 @@
     "url": "git+https://github.com/uimijs/uimi.git"
   },
   "scripts": {
-    "api": "npm-run-all api-*",
-    "api-build": "rollup --config build/rollup.config.js",
-    "api-minify-main": "terser --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/uimi.js.map,includeSources,url=uimi.min.js.map\" --output dist/js/uimi.min.js dist/js/uimi.js",
+    "ui": "npm-run-all ui-*",
+    "ui-build": "rollup --config build/rollup.config.js",
+    "ui-minify-main": "terser --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/uimi.js.map,includeSources,url=uimi.min.js.map\" --output dist/js/uimi.min.js dist/js/uimi.js",
     "css": "npm-run-all css-*",
     "css-theme": "node-sass --source-map true scss -o dist/css",
     "css-minify-main": "cleancss -O2 --source-map --source-map-inline-sources -o dist/css/uimi.min.css dist/css/uimi.css"
@@ -24,7 +24,6 @@
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
     "@vue/compiler-sfc": "^3.0.4",
-    "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "clean-css-cli": "^4.3.0",
     "glob": "^7.1.6",
@@ -35,6 +34,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-vue": "^6.0.0",
+    "rollup-plugin-typescript2": "^0.29.0",
     "terser": "^5.5.1",
     "tslib": "^2.0.3",
     "typescript": "^4.1.2",
@@ -42,7 +42,6 @@
     "bootstrap-vue": "^2.19.0",
     "chalk": "^4.1.0",
     "commander": "^6.2.0",
-    "pixrem": "^5.0.0",
-    "rollup-plugin-typescript2": "^0.29.0"
+    "pixrem": "^5.0.0"
   }
 }
