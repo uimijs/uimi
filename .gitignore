@@ -1,6 +1,0 @@
-node_modules
-.*
-*.map
-.npmrc
-.npmgnore
-.gitignore
