@@ -13,8 +13,8 @@ const banner =
 */`;
 
 export default {
-  //input: "./src/index.ts",
-  input: "./src/test.ts",
+  input: "./src/index.ts",
+  //input: "./src/test.ts",
   output: [
     {
       file: "./dist/js/uimi.cjs.js",
