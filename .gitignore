@@ -1,6 +1,8 @@
 node_modules
 .*
 *.map
+package-lock.json
+.editorconfig
+.babelrc
 .npmrc
-.npmgnore
 .gitignore

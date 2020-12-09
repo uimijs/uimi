@@ -3,7 +3,7 @@
     [
       "@babel/env",
       {
-        "modules": false, //默认都是支持 CommonJS
+        "modules": false, //默认都是支持CommonJS
         "targets": {
           "browsers": [
             "last 3 Chrome versions",
