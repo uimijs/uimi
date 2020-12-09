@@ -19,7 +19,6 @@
 <script lang="ts">
 import { computed, watch, ref, reactive, provide, isProxy } from "vue";
 import { dropdownData } from "./dropdown-store";
-import { setToRefs } from "../../utils/proxy";
 export default {
   name: "Dropdown",
   props: {
@@ -27,7 +26,7 @@ export default {
     theme: { type: String, default: "primary" }, //主题颜色
   },
   setup() {
-    setToRefs(dropdownData, 'show')
+    dropdownData.init()
     dropdownData.show.list++;
     const dropdownId = dropdownData.show.list;
     const show = ref(false);

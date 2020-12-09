@@ -2,7 +2,7 @@ module.exports = {
   // tab缩进大小,默认为2
   "tabWidth": 2,
   //每行最多多少个字符换行
-  "printWidth": 100,
+  "printWidth": 80,
   // 使用tab缩进，默认false
   "useTabs": false,
   // 使用分号, 默认true
@@ -12,7 +12,7 @@ module.exports = {
   // 行尾逗号,默认none,可选 none|es5|all
   // es5 包括es5中的数组、对象
   // all 包括函数对象等所有可选
-  "TrailingCooma": "all",
+  "TrailingCooma": "none",
   // 对象中的空格 默认true
   // true: { foo: bar }
   // false: {foo: bar}

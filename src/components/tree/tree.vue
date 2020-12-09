@@ -11,7 +11,6 @@ import {
   withDirectives,
 } from "vue";
 import vCollapse from "../../directives/collapse";
-import { setToRefs } from "../../utils/proxy";
 import { treeData } from "./tree-store";
 export default {
   name: "TreeMenu",
@@ -43,7 +42,7 @@ export default {
     clickMenu: Function,
   },
   setup(props) {
-    setToRefs(treeData, "show")
+    treeData.init()
     const hasMenu = props.menu.hasOwnProperty(props.pidKey);
     const tag = hasMenu ? "li" : "nav";
     const menuClass = hasMenu ? "nav-item" : "tree";

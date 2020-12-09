@@ -13,14 +13,13 @@
 <script lang="ts">
 import { computed, isProxy, reactive, h } from "vue";
 import { dropdownData } from "./dropdown-store";
-import { setToRefs } from "../../utils/proxy";
 export default {
   name: "DropdownMenu",
   props: {
     MenuItem: Array,
   },
   setup() {
-    setToRefs(dropdownData, "show")
+    dropdownData.init()
     const dropdownId = dropdownData.show.list;
     const show = computed(() => dropdownId === dropdownData.show.id);
     return {
