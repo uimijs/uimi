@@ -1,12 +1,13 @@
 //纯粹为了好理解和树摇
-import { initRefs } from "../../utils/proxy";
 export const dropdownData = {
-  init() {
-    initRefs(this, "show")
+  count: 0,
+  showId: -1,
+  getDropdownId() {
+    this.count++
+    return this.count
   },
-  show: {
-    list: 0,
-    id: -1
-  },
+  setShowId(id: number) {
+    this.showId = id
+  }
 }
 

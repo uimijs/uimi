@@ -1,6 +1,6 @@
 declare module '*.vue' {
-  import { Component } from 'vue'
-  const component: Component
+  import { defineComponent } from 'vue'
+  const component: ReturnType<typeof defineComponent>
   export default component
 }
 declare type Indexable<T> = {

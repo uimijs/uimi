@@ -1,7 +1,6 @@
-import { install } from "../../install";
-
+import { install } from "../install";
 import Tree from "./tree.vue";
-export default {
+export {
   install,
   Tree
 }

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    //"declaration": true,
     "target": "esnext",
     "module": "esnext",
     //"strict": true,
@@ -7,7 +8,25 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "removeComments": true, // 删除注释
-    "sourceMap": true // 生成目标文件的sourceMap文件
+    "sourceMap": true, // 生成目标文件的sourceMap文件
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@directives/*": [
+        "src/directives/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+    },
   },
   "exclude": [
     "node_modules"

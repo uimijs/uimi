@@ -33,7 +33,7 @@ createApp(App).use(UiLink).use(UiButton)
 ```
 
 ## About
-* base on [Bootstrap](https://v4.bootcss.com/)
+* base on [Bootstrap](https://v5.bootcss.com/)
 
 ## Documentation
 

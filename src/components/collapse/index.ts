@@ -1,6 +1,6 @@
-import { install } from "../../install";
+import { install } from "../install";
 import Collapse from "./collapse.vue";
-export default {
+export {
   install,
   Collapse
 }

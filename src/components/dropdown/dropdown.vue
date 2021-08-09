@@ -12,12 +12,11 @@
       v-if="ButtonText"
       v-text="ButtonText"
     ></button>
-    <slot></slot>
+    <slot :id="dropdownId"></slot>
   </div>
 </template>
-
 <script lang="ts">
-import { computed, watch, ref, reactive, provide, isProxy } from "vue";
+import { defineComponent, computed, watch, ref, reactive, provide, isProxy } from "vue";
 import { dropdownData } from "./dropdown-store";
 export default {
   name: "Dropdown",
@@ -26,20 +25,21 @@ export default {
     theme: { type: String, default: "primary" }, //主题颜色
   },
   setup() {
-    dropdownData.init()
-    dropdownData.show.list++;
-    const dropdownId = dropdownData.show.list;
+    const dropdown = reactive(dropdownData)
+    const dropdownId = dropdown.getDropdownId();
+    //console.log("dropdownId", dropdownId)
     const show = ref(false);
     const style = reactive<any>({});
-    const showDropdown = () => dropdownData.show.id = dropdownData.show.id == dropdownId ? -1 : dropdownId
+    const showDropdown = () => dropdown.setShowId((dropdown.showId == dropdownId) ? -1 : dropdownId)
     watch(
-      () => dropdownData.show.id,
+      () => dropdown.showId,
       (showId) => {
-        show.value = dropdownId === showId;
+        show.value = (dropdownId === showId);
         style["z-index"] = showId !== -1 && !show.value ? 1000 : "";
       }
     );
     return {
+      dropdownId,
       show,
       style,
       showDropdown,

@@ -1,6 +1,6 @@
-import { install } from "../../install";
+import { install } from "../install";
 import Avatar from "./avatar.vue";
-export default {
+export {
   install,
   Avatar
 }

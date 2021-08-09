@@ -11,7 +11,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, isProxy, reactive, h } from "vue";
+import { defineComponent, computed, isProxy, reactive, h } from "vue";
 import { dropdownData } from "./dropdown-store";
 export default {
   name: "DropdownMenu",
@@ -19,9 +19,9 @@ export default {
     MenuItem: Array,
   },
   setup() {
-    dropdownData.init()
-    const dropdownId = dropdownData.show.list;
-    const show = computed(() => dropdownId === dropdownData.show.id);
+    const dropdown = reactive(dropdownData)
+    const dropdownId = dropdown.count;
+    const show = computed(() => dropdownId === dropdown.showId);
     return {
       show,
     };

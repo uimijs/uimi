@@ -15,21 +15,16 @@
   </table>
 </template>
 <script lang="ts">
-import { computed, toRefs } from "vue";
+import { defineComponent, computed, toRefs } from "vue";
 export default {
   name: "Table",
   props: {
     columns: Object,
     data: Object,
   },
-  setup(props: any) {
-    console.log("类型",typeof props.data,typeof props.data[0],props.data);
-    const thead = computed(() =>
-      !props.columns && props.data[0]
-        ? Object.keys(props.data[0])
-        : props.columns
-    );
-
+  setup(props) {
+    console.log("类型", typeof props.data, typeof props.data[0], props.data);
+    const thead = computed(() => !props.columns && props.data[0] ? Object.keys(props.data[0]) : props.columns);
     return {
       thead,
     };

@@ -1,0 +1,12 @@
+.pagination {
+  .page-link{
+    cursor: pointer;
+  }
+  .dropdown-menu {
+    min-width: 86px;
+  }
+}
+.page-item.disabled .page-link {
+  pointer-events: unset;
+  cursor: not-allowed;
+}

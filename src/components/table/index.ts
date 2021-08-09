@@ -1,6 +1,6 @@
-import { install } from "../../install";
+import { install } from "../install";
 import Table from "./table.vue"
-export default {
+export {
   install,
   Table
 }

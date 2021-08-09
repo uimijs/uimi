@@ -1,19 +1,13 @@
 export const prefix = "Ui"
-export function toPascalCase(str:string) {
-  var tf = str.split('-');
-  var len = tf.length;
-  //	console.log(tf);
-  for (var i = 0; i < len; i++) {
-    var k = tf[i].charAt(0);
-    k = k.toUpperCase();
-    tf[i] = tf[i].replace(tf[i].charAt(0), k);
-    // console.log(tf[i]);
-  }
-  //	console.log(tf);
-  str = '';
-  for (var j = 0; j < len; j++) {
-    str += tf[j];
-  }
-  // console.log(str);
-  return str;
+export function test() {
+  var str = "shouHou";
+  //$1-第一个括号匹配的内容
+  //这个实例，$1='H'
+  str = str.replace(/([A-Z])/g, "-$1").toLowerCase();
+  var str = "shou-hou";
+  //$0-匹配的结果   $1-第一个括号匹配的内容
+  //这个实例$0='-h' $1='h'
+  str = str.replace(/-(\w)/g, function ($0, $1) {
+    return $1.toUpperCase();
+  });
 }

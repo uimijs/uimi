@@ -1,20 +1,58 @@
+<template>
+  <Element :tagName="tagName" :class="menuClass">
+    <a
+      v-if="menu"
+      class="nav-link"
+      :class="{ active: isActive }"
+      @click="clickMenu(menu), setActive(menu[pidKey], menu.id)"
+    >
+      <Icon :name="icon" :style="marginLeft"></Icon>
+      <span class="flex-fill" v-text="menu[nameKey]"></span>
+      <Icon name="angle-down" v-if="hasChild"></Icon>
+    </a>
+    <ul v-if="hasChild" v-collapse="isActive" class="nav">
+      <Tree
+        v-for="(menu, id) in menuData[pid]"
+        :key="id"
+        v-bind="{
+          level: level + 1,
+          menu,
+          pid: menu[idKey],
+          pidKey,
+          clickMenu,
+        }"
+      ></Tree>
+    </ul>
+  </Element>
+</template>
 <script lang="ts">
-import {
-  PropType,
-  computed,
-  reactive,
-  watch,
-  ref,
-  h,
-  resolveComponent,
-  renderList,
-  withDirectives,
-} from "vue";
-import vCollapse from "../../directives/collapse";
-import { treeData } from "./tree-store";
+import { defineComponent, reactive, PropType, computed, watch, ref, toRefs } from "vue";
+import { Icon } from "@components/icon";
+import { Element } from "@components/element";
+import { collapse } from "@directives/collapse";
+const treeData = {
+  show: <Indexable<any>>{},
+  menuData: <Indexable<any>>{},
+  updateShow(this: Indexable<any>, pid: string, id: string) {
+    this.show[pid] = this.show[pid] !== id ? id : "-1";
+  },
+}
+
+//tree
 export default {
-  name: "TreeMenu",
+  name: "Tree",
+  components: {
+    Element,
+    Icon
+  },
+  directives: {
+    collapse
+  },
   props: {
+    class: {
+      type: String,
+      default: "tree",
+    },
     pid: {
       type: [Number, String],
       default: 0,
@@ -29,80 +67,70 @@ export default {
     },
     menu: {
       type: Object as PropType<Indexable<string>>,
-      default: {},
+    },
+    idKey: {
+      type: String,
+      default: "id",
     },
     pidKey: {
       type: String,
       default: "pid",
     },
+    nameKey: {
+      type: String,
+      default: "name",
+    },
+    iconKey: {
+      type: String,
+      default: "icon",//计划中
+    },
     data: {
       type: Object as PropType<Indexable<string>>,
-      required: true,
+      //required: true,
     },
     clickMenu: Function,
   },
   setup(props) {
-    treeData.init()
-    const hasMenu = props.menu.hasOwnProperty(props.pidKey);
-    const tag = hasMenu ? "li" : "nav";
-    const menuClass = hasMenu ? "nav-item" : "tree";
-    const childId = hasMenu ? props.menu.id : props.pid;
-    const hasChild = computed(() => props.data.hasOwnProperty(childId));
-    const isActive = ref(hasMenu ? false : true);
-    const setActive = (pid: string, id: string) => {
-      treeData.updateShow(pid, id)
-      isActive.value = !isActive.value
+    const tree = reactive(treeData)
+    const { menuData } = toRefs(tree)
+    if (!props.menu) {
+      function resolveMenu(data: Indexable<any>) {
+        const menu = {}
+        if (data) {
+          const menu_length = data.length
+          for (let i = 0; i < menu_length; i++) {
+            const pid = data[i][props.pidKey]
+            if (!menu.hasOwnProperty(pid)) menu[pid] = []
+            menu[pid].push(data[i])
+          }
+        }
+        return menu
+      }
+      console.log("tree性能测试", props.data)
+      menuData.value = resolveMenu(props.data)
+      watch(() => props.data, newVal => menuData.value = resolveMenu(newVal))
     }
-    if (props.accordion) {
+
+    const tagName = props.menu ? "li" : "nav";
+    const menuClass = props.menu ? "nav-item" : props.class;
+    //因为在本组件内只有data是创建后会改变，所以一个带data的计算就能响应了
+    const hasChild = computed(() => menuData.value.hasOwnProperty(props.pid));
+    const marginLeft = props.level > 0 ? { "margin-left": props.level + "em" } : {};
+    const icon = props.menu ? props.menu[props.iconKey] : ''
+
+    const isActive = ref(props.menu ? false : true);
+    const setActive = (pid: string, id: string) => {
+      if (props.accordion) tree.updateShow(pid, id)
+      else isActive.value = !isActive.value
+    }
+
+    if (props.accordion && props.menu)
       watch(
-        () => treeData.show[props.menu[props.pidKey]], //检测本级的showid是否变更
+        () => tree.show[props.menu[props.pidKey]], //检测本级的showid是否变更
         (showId) => (isActive.value = props.menu.id === showId)
       );
-    }
-    const marginLeft =
-      props.level > 0 ? { "margin-left": props.level + "em" } : {};
-
-    return {
-      hasMenu,
-      tag,
-      menuClass,
-      childId,
-      hasChild,
-      isActive,
-      setActive,
-      marginLeft,
-    };
-  },
-  render(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_tree_menu = resolveComponent("tree-menu");
-    const { level, pidKey, menu, data, clickMenu } = $props;
-    const { hasMenu, tag, menuClass, childId, hasChild, isActive, setActive, marginLeft, } = $setup;
-
-    const aMenu = hasMenu
-      ? h("a",
-        {
-          key: 0,
-          class: ["nav-link", { active: isActive }],
-          onClick: _cache[1] || (_cache[1] = () => (clickMenu(menu), setActive(menu[pidKey], menu.id))),
-        },
-        [
-          h("i", { class: "fa fa-home", style: marginLeft }),
-          h("span", menu.name),
-          hasChild ? h("i", { class: "fa fa-angle-down" }) : "",
-        ]
-      )
-      : "";
-    const ulMenu = hasChild
-      ? withDirectives(
-        h("ul", { class: "nav" },
-          renderList(data[childId],
-            menu => h(_component_tree_menu, { key: menu.id, level: level + 1, menu, pidKey, data, clickMenu, })
-          )
-        ),
-        [[vCollapse, isActive]])
-      : "";
-    console.log("tree性能测试");
-    return h(tag, { class: menuClass }, [aMenu, ulMenu]);
+    return { menuData, tagName, menuClass, hasChild, isActive, setActive, icon, marginLeft, };
   },
 };
+
 </script>

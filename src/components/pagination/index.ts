@@ -1,7 +1,7 @@
-import { install } from "../../install";
+import { install } from "../install";
 import Pagination from "./pagination.vue"
 
-export default {
+export {
   install,
   Pagination
 }

@@ -22,7 +22,7 @@ export default {
     columns: Object,
     data: Object,
   },
-  setup(props: any) {
+  setup(props) {
     console.log(props.data[0]);
     const thead = computed(() =>
       !props.columns && props.data[0]

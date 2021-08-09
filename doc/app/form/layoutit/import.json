@@ -1,0 +1,11 @@
+{
+  "title": "云僖OA",
+  "plugin": [
+    "vue",
+    "jquery",
+    "jquery-ui",
+    "yunxiapi",
+    "uimi",
+    "font-awesome"
+  ]
+}
