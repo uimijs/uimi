@@ -1,3 +1,4 @@
+@use "sass:math";
 $body-bg: #f8f9fa !default;
 $body-color: #495057 !default;
 $font-family-sans-serif:Nunito,
@@ -26,9 +27,9 @@ $spacer: 20px !default;
 $border-color:#e9ecef !default;
 //grid//row
 $grid-columns: 24 !default;
-$grid-gutter-width: $spacer/2 !default;
-$grid-row-columns: $grid-columns/2 !default;
-$form-grid-gutter-width: $grid-gutter-width/2 !default;
+$grid-gutter-width: math.div($spacer, 2) !default;
+$grid-row-columns: math.div($grid-columns, 2) !default;
+$form-grid-gutter-width: math.div($grid-gutter-width, 2) !default;
 //input// Buttons + Forms
 $input-btn-padding-y: 6px !default;
 $input-disabled-bg: #fff !default;
@@ -57,7 +58,7 @@ $modal-content-border-width:0 !default;
 //$table-hover-bg:             rgba($black, .075) !default;
 // Pagination
 $pagination-color: $body-color !default;
-$pagination-disabled-color:rgba( $pagination-color, .5) !default;
+$pagination-disabled-color:rgba($pagination-color, .5) !default;
 $pagination-bg: #fff !default;
 $pagination-border-color: #d7dde2 !default;
 $pagination-padding-y:5px !default;

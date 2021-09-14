@@ -1,14 +1,18 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path'
 const cwd = process.cwd()
 
 export default defineConfig({
-  envDir:path.resolve(cwd, 'env'),
-  plugins: [vue()],
+  envDir: path.resolve(cwd, 'env'),
+  plugins: [vue(), vueJsx({
+    optimize: true
+
+  })],
   resolve: {
     alias: {
-      "uimi": path.resolve(cwd, 'dist/js/uimi.es.js'),
+      "uimi": path.resolve(cwd, 'dist/lib/index.js'),
       "@dist": path.resolve(cwd, 'dist'),
       "@node_modules": path.resolve(cwd, 'node_modules'),
       "@src": path.resolve(cwd, "src"),
@@ -17,5 +21,5 @@ export default defineConfig({
       "@directives": path.resolve(cwd, "src/directives"),
       "@utils": path.resolve(cwd, "src/utils"),
     }
-  }
+  },
 })

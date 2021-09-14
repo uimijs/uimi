@@ -98,22 +98,17 @@ export const actions = {
       })
   },
   showMenu(menu) {
-    //console.log("点击了", menu);
     if (!menu.link) return
     router.push(menu.link)
     let index = state.appItem.findIndex(((item) => item.id == menu.id))
     console.log(index)
     if (index == -1) {
       index = state.appItem.push(menu) - 1
-      //state.appItem = state.appItem
-      //console.log(index, state.appItem)
-      //index = state.appItem.length - 1
     }
     state.appShow = index
   },
   removeMenu(index) {
     state.appItem.splice(index, 1)
-    //state.appItem = state.appItem
     const len = state.appItem.length
     if (len <= state.appShow || len == 0) state.appShow = len - 1
     console.log(index)

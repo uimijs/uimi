@@ -1,0 +1,8 @@
+{
+    "imports": {
+       "path":"https://deno.land/std@0.61.0/path/mod.ts",
+       "vite": "https://cdn.skypack.dev/vite?dts",
+       "express":"https://unpkg.com/express@4.17.1/index.js",
+       "@vitejs/plugin-vue":"https://unpkg.com/@vitejs/plugin-vue@1.4.0/dist/index.js"
+    }
+ }

@@ -2,23 +2,16 @@
   <AppDefault />
 </template>
 <script>
+//可定义多款布局，然后根据用户的配置来动态切换布局。
 import AppDefault from "./theme/Default.vue"
-// import uimi from "uimi";
 import components from "./components/components"
-// export default {
-//   components,
-// }
-// import components from "./components/components";
-// // app=uimi.getVueApp
-//window.dddd.use(components)
-
+import { useVueApp } from "uimi"
 export default {
   components: {
     AppDefault,
   },
   setup() {
-    window.dddd.use(components)
-    console.log("ddd", window.dddd)
+    useVueApp().use(components)
   },
 }
 </script>

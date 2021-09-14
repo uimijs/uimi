@@ -11,7 +11,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, computed, isProxy, reactive, h } from "vue";
+import { computed,reactive} from "vue";
 import { dropdownData } from "./dropdown-store";
 export default {
   name: "DropdownMenu",

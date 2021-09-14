@@ -1,7 +1,7 @@
 import { createApp, defineAsyncComponent } from "vue";
 import uimi, { global, Loading } from "uimi"
 import router from "./router.js";
-import "@dist/style.css"
+import "@dist/lib/style.css"
 import "@node_modules/font-awesome/css/font-awesome.min.css"
 //content
 //import App from "./App.vue";
@@ -21,5 +21,5 @@ const app = createApp(defineAsyncComponent({
 app.mount("#app");
 app.use(uimi)
   .use(router)
-window.dddd = app
-console.log("ddd", window.dddd)
+  //路由在各自实例中配置
+

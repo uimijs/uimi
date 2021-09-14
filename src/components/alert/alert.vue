@@ -9,7 +9,7 @@
   </transition>
 </template>
 <script lang="ts">
-import { defineComponent, PropType, ref } from "vue";
+import {  ref } from "vue";
 import { theme } from "@constants/props";
 export default {
   name: "Alert",

@@ -5,7 +5,7 @@
   </Element>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { reactive } from 'vue'
 import { rounded, theme } from "@constants/props";
 import { Element } from "@components/element";
 import { Icon } from "@components/icon";

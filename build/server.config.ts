@@ -4,6 +4,7 @@
 import { defineConfig, mergeConfig } from 'vite'
 import baseConfig from "./base.config";
 const config = defineConfig({
-  root: 'doc',
+  root: 'website/client',
+  //server: { middlewareMode: 'html' }
 })
 export default mergeConfig(baseConfig, config)

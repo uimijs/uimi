@@ -17,7 +17,7 @@
   </Element>
 </template>
 <script lang="ts">
-import { defineComponent, ref, h, renderSlot } from "vue";
+import { ref } from "vue";
 import { rounded, theme } from "@constants/props";
 import { Icon } from "@components/icon";
 import { Element } from "@components/element";

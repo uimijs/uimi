@@ -810,12 +810,13 @@
 </template>
 <script>
 import { ref } from "vue"
-import yunxi from "@yunxioa/api"
+import {cookie} from "uimi"
+//import yunxi from "@yunxioa/api"
 export default {
   setup() {
     console.log("测试本地", decodeURIComponent(document.cookie))
     const userName = ref()
-    userName.value = yunxi.cache.cookie.getItem("username")
+    userName.value = cookie.getItem("username")
     return {
       userName,
     }
