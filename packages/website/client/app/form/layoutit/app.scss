@@ -1,0 +1,127 @@
+/* * 页面布局 */
+header {
+  height: 80px;
+}
+
+:deep(.elements-list) {
+  width: 256px;
+  height: calc(100vh - 80px);
+  background-color: #fff;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  .elements-header {
+    padding: 12px 8px 4px;
+  }
+
+  li {
+    padding: 2px;
+
+    .grid,
+    .components {
+      padding: 4px 8px;
+      background-color: #f8f9fa;
+      border: 1px dashed #ccc;
+
+      .drag {
+        vertical-align: middle;
+      }
+
+      .view,
+      .action {
+        display: none;
+      }
+    }
+
+    .ui-draggable-dragging {
+      padding: unset;
+      background-color: unset;
+      border: unset;
+      z-index: 1024;
+
+      .move {
+        display: none;
+      }
+
+      .view {
+        display: block;
+      }
+    }
+  }
+}
+
+.grid {
+  .column {
+    background-color: #FFFFFF;
+    border: 1px dotted #DDDDDD;
+
+    &:empty {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+}
+
+.grid,
+.components {
+  position: relative;
+
+  .move {
+    cursor: move;
+  }
+}
+
+.page {
+  .drag {
+    display: none;
+  }
+
+  .grid {
+    background-color: #f8f9fa;
+  }
+
+  .grid,
+  .components {
+    .active {
+      &>.move {
+        display: block;
+      }
+    }
+
+    &:hover {
+      &>.view>* {
+        border: 1px dotted #DDDDDD;
+      }
+    }
+  }
+
+  .move {
+    position: absolute;
+    display: none;
+    top: -20px;
+    color: #6c757d;
+  }
+}
+
+.container-fluid {
+  overflow: hidden;
+}
+
+.center {
+  height: calc(100vh - 80px);
+  padding: 0;
+  overflow-y: auto;
+}
+
+.right {
+  width: 240px;
+  height: calc(100vh - 80px);
+  padding: .80px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.table td,
+.table th {
+  min-height: 40px;
+}

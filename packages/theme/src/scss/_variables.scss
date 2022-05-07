@@ -1,0 +1,19 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+// scss-docs-end theme-color-variables
+$primary: #d24628 !default;
+$secondary: #6c757d !default;
+$success: #198754 !default;
+$info: #0dcaf0 !default;
+$warning: #ffc107 !default;
+$danger: #dc3545 !default;
+$light: #f8f9fa !default;
+$dark: #212529 !default;
+$default: #fff !default;
+// Color system
+$avatar-size-base: 36px !default;
+$avatar-size-sm: 32px !default;
+$avatar-size-lg: 40px !default;
+$avatar-bg-color: #c0c4cc !default;

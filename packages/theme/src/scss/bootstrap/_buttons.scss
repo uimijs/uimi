@@ -1,0 +1,9 @@
+.btn {
+  &.btn-default {
+    @include button-variant($white, $border-color);
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

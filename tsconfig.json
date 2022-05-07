@@ -1,36 +1,21 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports":true,
-    //"declaration": true,
-    "target": "esnext",
-    "module": "esnext",
-    //"strict": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noImplicitAny": false /* 是否默认禁用 any */,
+    "declaration": true /* 是否自动创建类型声明文件 */,
     "noImplicitThis": true, // 这样就可以对 `this` 上的数据属性进行更严格的推断`
-    "jsx": "preserve",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "removeComments": true, // 删除注释
+    "strict": false /* 启动所有类型检查 */,
     "sourceMap": true, // 生成目标文件的sourceMap文件
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "outDir": "./lib",
     "paths": {
-      "@src/*": [
-        "src/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@constants/*": [
-        "src/constants/*"
-      ],
-      "@directives/*": [
-        "src/directives/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ],
+      "@/*": ["packages/website/*"],
+      "&/*": ["packages/theme/src/*"]
     },
+    "types": ["node", "vite/client"]
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["dist", "lib", "out", "node_modules"]
 }

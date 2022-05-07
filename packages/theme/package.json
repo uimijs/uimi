@@ -1,0 +1,34 @@
+{
+  "private": "true",
+  "name": "@uimi/theme",
+  "version": "2.0.0",
+  "description": "all theme are settled here",
+  "main": "src/index.ts",
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">= 16"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "css": "vite build",
+    "css-b": "node-sass src/scss/index.scss lib/style.css",
+    "css-e": "node-sass src/scss/index.scss lib/style.css",
+    "css-minify-main": "cleancss -O2 --source-map --source-map-inline-sources -o dist/css/uimi.min.css dist/css/uimi.css",
+    "preinstall": "npx only-allow pnpm",
+    "install": "node install.js"
+  },
+  "devDependencies": {
+    "@element-plus/icons-vue": "^1.1.4",
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.8.1",
+    "clean-css-cli": "^5.6.0",
+    "element-plus": "^2.1.11",
+    "perfect-scrollbar": "^1.5.5",
+    "sass": "^1.51.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.6",
+    "vue": "^3.2.33"
+  }
+}

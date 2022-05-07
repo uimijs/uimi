@@ -1,0 +1,32 @@
+@use '../variables.scss' as *;
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'white': #fff,
+    'black': #000,
+    'primary': (
+      'base': $primary,
+    ),
+    'success': (
+      'base': $success,
+    ),
+    'warning': (
+      'base': $warning,
+    ),
+    'danger': (
+      'base': $danger,
+    ),
+    'error': (
+      'base': $danger,
+    ),
+    'info': (
+      'base': $secondary,
+    ),
+  ),
+  $main: (
+    'padding': 10px,
+  )
+);
+
+/* theme color */
+@use 'element-plus/theme-chalk/src/index.scss' as *;
+@import 'fix.scss';

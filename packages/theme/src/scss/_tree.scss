@@ -1,0 +1,28 @@
+.tree {
+  display: block;
+
+  ul {
+    display: block;
+    overflow: hidden;
+  }
+
+  .flex-fill {
+    overflow: hidden;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+    overflow: hidden;
+
+    // &.active &:hover {
+    //   color: #fff;
+    //   background: #03a9f4;
+    // }
+    &.active {
+      .fa-angle-down {
+        transform: rotate(-180deg);
+        @include transition($transition-base);
+      }
+    }
+  }
+}

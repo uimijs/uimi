@@ -1,0 +1,245 @@
+@use "sass:math";
+$sidebar-padding-y: 12px;
+$sidebar-padding-x: 28px;
+$sidebar-width: 240px;
+$sidebar-min-width:$sidebar-padding-x * 2+16px+3px;
+$sidebar-background: #fff;
+$sidebar-color: #adb5bd;
+$sidebar-link-height:$sidebar-padding-y * 2+14 * 1.5;
+$navbar-height:60px;
+$nav-label:48px;
+$user-card-padding:math.div($sidebar-min-width - 36px, 2);
+
+.sidebar {
+  width: $sidebar-width;
+  transition: all 0.35s linear;
+  background-color: $sidebar-background;
+  font-weight: 600;
+  color: #6c757d;
+
+  //color: $sidebar-color;
+  .user-card {
+    width: $sidebar-width;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $sidebar-width;
+    height: $navbar-height;
+    color: #f8f9fa;
+    cursor: pointer;
+    //transition: all 0.35s ease-in-out;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    img {
+      margin-right: 4px;
+    }
+
+    &:hover {
+      background-color: #2d3646;
+      // opacity: 0.7;
+    }
+  }
+
+  .sidebar-content {
+    position: relative;
+    height: calc(100vh - #{$navbar-height * 2});
+  }
+
+  .tree {
+    .nav-item {
+      ul.show {
+        background-color: #eef0f5;
+      }
+    }
+
+    .nav-link {
+      width: $sidebar-width;
+      padding: $sidebar-padding-y $sidebar-padding-x;
+      border-left: 3px solid transparent;
+
+      span {
+        transition: opacity .35s;
+      }
+
+      &.active,
+      &:hover {
+        color: #5369f8;
+      }
+
+      .fa:first-child {
+        width: 16px;
+        margin-right: 12px;
+        text-align: center;
+      }
+    }
+
+    >.nav-item>.nav-link {
+      &.active {
+        border-left-color: rgb(83, 105, 248);
+      }
+
+      &.active,
+      &:hover {
+        background-color: #eff1f5;
+      }
+    }
+  }
+}
+
+//收缩导航栏后的显示效果
+.sidebar-min {
+  width: $sidebar-min-width;
+
+  .user-info,
+  .navbar-brand {
+    opacity: 0;
+  }
+
+  .sidebar-content {
+    overflow: unset !important;
+  }
+
+  .tree>ul {
+    // display: block;
+
+    &>.nav-item {
+      &>.nav-link {
+        color: unset;
+
+        .fa-angle-down,
+        span {
+          opacity: 0;
+        }
+      }
+
+      ul.show {
+        display: none;
+      }
+
+      &:hover {
+        >ul {
+          display: block;
+          position: absolute;
+          background-color: #eef0f5;
+          margin-top: -$sidebar-link-height;
+          margin-left: $sidebar-min-width;
+          z-index: 1024;
+
+          .nav-link {
+            padding-left: 0;
+          }
+        }
+      }
+
+      // ul.show {
+      //   display: block;
+      //   position: absolute;
+      //   margin-top: -$sidebar-link-height;
+      //   margin-left: $sidebar-min-width + 2px;
+      //   z-index: 1024;
+
+      //   .nav-link {
+      //     padding-left: 0;
+      //   }
+      // }
+    }
+  }
+}
+
+.navbar {
+  height: $navbar-height;
+
+  .nav-link {
+    //这里需要在主题里面改
+    padding: 16px !important;
+    // padding-right: 16px !important;
+    // padding: 20px 16px;
+    // color: inherit;
+  }
+
+  i {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .badge {
+    position: absolute;
+    top: 6px;
+    right: -12px;
+  }
+
+
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  height: $navbar-height;
+  min-width: 160px;
+  padding-right: $user-card-padding;
+  padding-left: $user-card-padding;
+
+  .user-info {
+    line-height: 1.125;
+    transition: opacity .35s;
+  }
+}
+
+.nav-label {
+  height: $nav-label;
+  //background-color: #fff;
+  // color: #6c757d;
+  box-shadow: inset 0 0 20px 0px rgba(0, 0, 0, 0.08);
+
+  .btn {
+    padding: 8px;
+
+    &.active,
+    &:hover {
+      span {
+        color: #007bff;
+      }
+
+      .close {
+        color: #adb5bd;
+      }
+    }
+  }
+
+  .nav-underline {
+    overflow-x: hidden;
+    transition: transform 0.5s ease-in-out;
+
+
+
+    .fa-refresh {
+      margin-right: 8px;
+      color: #dee2e6;
+      transition: all 0.35s ease-in-out;
+
+      &:hover {
+        color: inherit;
+        transform: rotate(300deg);
+      }
+    }
+
+    .fa-close {
+      margin-left: 8px;
+      color: #e9ecef;
+
+      &:hover {
+        color: #f00;
+      }
+    }
+  }
+}
+
+.app-body {
+  //display: block;
+  //width: calc(100vw - #{$sidebar-width});
+  height: calc(100vh - #{$navbar-height + $nav-label});
+  overflow: auto;
+}

@@ -1,0 +1,90 @@
+@import '../variables.scss';
+$body-bg: #f6f8fa !default;
+$body-color: #0c0200 !default;
+
+// $variable-prefix: ui- !default;
+$font-family-sans-serif: arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', Tahoma, Arial, Helvetica,
+  STHeiti !default;
+$font-size-lg: 16px !default;
+$font-size-base: $font-size-lg * 0.875 !default;
+$font-size-sm: $font-size-lg * 0.75 !default;
+
+$h1-font-size: $font-size-lg * 1.75;
+$h2-font-size: $font-size-lg * 1.5;
+$h3-font-size: $font-size-lg * 1.25;
+$h4-font-size: $font-size-lg;
+$h5-font-size: $font-size-base;
+$h6-font-size: $font-size-sm;
+
+$spacer: 20px !default;
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+  //"default":$default
+) !default;
+// scss-docs-end theme-colors-map
+//border
+$border-color: #e9ecef !default;
+//grid//row
+$grid-columns: 24 !default;
+$grid-gutter-width: $spacer * 0.5 !default;
+$grid-row-columns: $grid-columns * 0.5 !default;
+// $container-padding-x: $grid-gutter-width !default;
+$form-grid-gutter-width: $grid-gutter-width * 0.5 !default;
+//input// Buttons + Forms
+$input-btn-padding-y-sm: 2.5px !default;
+$input-btn-padding-y: $input-btn-padding-y-sm + 2px !default;
+$input-btn-padding-y-lg: $input-btn-padding-y-sm + 4px !default;
+$btn-white-space: nowrap;
+// $input-disabled-bg: #fff !default;
+// $input-border-color: #dee2e6 !default;
+// $input-btn-focus-width: 1px !default;
+// $input-btn-line-height: 1 !default;
+// Navbar
+$navbar-padding-y: 0 !default;
+$navbar-padding-x: 0 !default;
+// $navbar-light-color: $body-color !default;
+// $navbar-light-active-color: $primary !default;
+//$navbar-nav-link-padding-x: 1 * 16px !default;
+$navbar-brand-padding-y: 0 !default;
+
+// $navbar-dark-color: #fff !default;
+
+$navbar-nav-link-padding-x: 20px !default;
+//list-group-item
+$list-group-item-padding-x: 16px !default;
+$list-group-item-padding-y: 8px !default;
+// Cards
+$card-cap-bg: rgba(0,0,0,.01) !default;
+$card-columns-gap: $grid-gutter-width !default;
+$card-border-width: 0 !default;
+//$card-border-radius: 4px !default;
+
+//modal
+$modal-content-border-width: 0 !default;
+$modal-inner-padding: 14px !default;
+//table
+//$table-cell-padding: 10px !default;
+//$table-border-color: #eef2f7 !default;
+//$table-hover-bg:             rgba($black, .075) !default;
+// Pagination
+$pagination-color: $body-color !default;
+$pagination-disabled-color: rgba($pagination-color, 0.5) !default;
+$pagination-bg: #fff !default;
+$pagination-border-color: #d7dde2 !default;
+$pagination-padding-y: 5px !default;
+$pagination-padding-x: 12px !default;
+//$pagination-margin-start:2px !default;
+$pagination-active-bg: #adb5bd !default;
+
+//dropdown
+//$dropdown-min-width: 86px;
+$dropdown-border-color: #e9ecef !default;

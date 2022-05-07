@@ -1,9 +1,0 @@
-.form-control {
-
-  &:disabled,
-  &[readonly] {
-    &:focus {
-      outline: none;
-    }
-  }
-}

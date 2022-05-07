@@ -1,0 +1,8 @@
+//修复错误样式
+.el-rate .el-rate__icon {
+  overflow: hidden;
+}
+.el-pagination {
+  --el-pagination-bg-color: unset;
+  --el-pagination-button-disabled-bg-color: unset;
+}

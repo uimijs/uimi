@@ -1,5 +1,11 @@
-dist
+.DS_Store
+.vscode
 node_modules
-package-lock.json
-*.map
-.npm*
+dist
+out
+*.local
+*.lock
+*.log
+* copy
+* copy.*
+pnpm-lock.yaml
